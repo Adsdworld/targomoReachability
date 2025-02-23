@@ -36,12 +36,12 @@ public class ReachabilityService {
         options.setEdgeWeightType(time ? EdgeWeightType.TIME : EdgeWeightType.DISTANCE); // choose between time and distance
         options.setMaxEdgeWeight(time ? 900 : 10000); // my account limitation 900s and 10km
         options.addSource(new DefaultSourceCoordinate(sourceStore.getId(), sourceStore.getLongitude(), sourceStore.getLatitude()));
-        /** edgeWeight
+        /** edgeWeight indications in REST Travel Times API
          * Determines the dimension of the edges' weight, i.e. time (distance in seconds) or distance (distance in meters).
          * distance Will optimize for distance and search for the shortest path, time will optimize for time and will search for the fastest path.
-         * Distance cannot be used in concert with travelType transit.
+         * *Distance cannot be used in concert with travelType transit.*
          */
-        if (time) { // to mesure distance, api founded in REST api doc
+        if (time) { // to mesure time
             options.setTravelType(TravelType.CAR);
         }
         options.setServiceKey(API_KEY);
