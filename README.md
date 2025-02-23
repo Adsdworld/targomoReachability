@@ -46,7 +46,7 @@ clean install exec:java
 
 ## Run with windows
 
-### Build
+### cmd
 
 ````
 mvn clean install exec:java
